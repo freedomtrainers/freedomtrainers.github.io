@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mmm Election Day: Our Civic Holiday</title>
+  <title>Election Day: Our Civic Holiday</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -259,6 +259,54 @@
     }
     .why-text { color: rgba(255,255,255,0.68); font-size: 0.93rem; line-height: 1.75; }
 
+    /* ── ACTION NETWORK STYLE OVERRIDES ── */
+    #can-form-area-count-me-in-20 { margin-top: 0.25rem; }
+    #can-form-area-count-me-in-20 h2,
+    #can-form-area-count-me-in-20 .can_intro_text { display: none !important; }
+    #can-form-area-count-me-in-20 .can_form,
+    #can-form-area-count-me-in-20 form { background: transparent !important; border: none !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
+    #can-form-area-count-me-in-20 .action_field { margin-bottom: 0.9rem !important; }
+    #can-form-area-count-me-in-20 label {
+      font-family: 'Oswald', sans-serif !important; font-size: 0.72rem !important;
+      color: #0d1f3c !important; font-weight: 100 !important;
+      display: block !important; margin-bottom: 0.35rem !important;
+    }
+    /* — override action network - */
+    .can_embed.form #can_embed_form_inner > h2 { display:none;}
+    .can_embed.form #can_embed_form_inner > h4 { display:none;}
+    .can_embed #can_embed_form .action_info_user { display:none !important; }
+    .can_embed #can_embed_form #logo_wrap { display:none !important; }
+    .can_embed #can_embed_form { background: none !important; background-color: none !important;}
+
+    #can-form-area-count-me-in-20 input[type="text"],
+    #can-form-area-count-me-in-20 input[type="email"],
+    #can-form-area-count-me-in-20 input[type="tel"],
+    #can-form-area-count-me-in-20 select {
+      width: 100% !important; padding: 0.7rem 0.9rem !important;
+      border: 2px solid #c8c4bb !important; background: none !important;
+      font-family: 'Lora', serif !important; font-size: 0.95rem !important;
+      color: #1a1a1a !important; outline: none !important; box-shadow: none !important;
+      border-radius: 0 !important; -webkit-appearance: none !important;
+    }
+    #can-form-area-count-me-in-20 input:focus,
+    #can-form-area-count-me-in-20 select:focus { border-color: #0d1f3c !important; }
+    #can-form-area-count-me-in-20 input[type="submit"],
+    #can-form-area-count-me-in-20 .button {
+      width: 100% !important; background: #b22234 !important; color: white !important;
+      font-family: 'Oswald', sans-serif !important; font-weight: 700 !important;
+      font-size: 1.05rem !important; letter-spacing: 0.1em !important;
+      text-transform: uppercase !important; padding: 1rem !important;
+      border: none !important; cursor: pointer !important; border-radius: 0 !important;
+      box-shadow: none !important; -webkit-appearance: none !important;
+    }
+    #can-form-area-count-me-in-20 input[type="submit"]:hover { background: #8b1a28 !important; }
+    #can-form-area-count-me-in-20 .can_errorlist { color: #b22234 !important; font-size: 0.82rem !important; }
+    #can-form-area-count-me-in-20 .can_thank_you {
+      font-family: 'Oswald', sans-serif !important; font-size: 1.1rem !important;
+      color: #1a5c2a !important; font-weight: 700 !important; padding: 1rem 0 !important;
+    }
+    #intent-pills-section { margin-bottom: 1rem; }
+
     /* ── CHECKBOX PILLS ── */
     .check-label {
       font-family: 'Oswald', sans-serif; font-size: 0.72rem;
@@ -451,7 +499,7 @@
       .toast { min-width: unset; max-width: 100%; }
       .pledge-cards { grid-template-columns: 1fr !important; }
     }
-  </style>
+      </style>
 </head>
 <body>
 
@@ -680,75 +728,15 @@
         <p style="font-size:0.85rem;color:var(--muted);font-style:italic;margin-top:1rem;">Mail-in and early voting are fully supported — every way you vote is a way to protect our vote.</p>
       </div>
 
-      <div class="form-box rev">
+      <div class="form-box rev" id="an-form-container">
         <div class="form-box-title">★ &nbsp;Count Me In</div>
-        <!-- ──────────────────────────────────────────
-             REPLACE THIS FORM WITH YOUR ACTION NETWORK EMBED:
-             1. Go to actionnetwork.org → your petition/signup
-             2. Click "Embed" → copy the embed code
-             3. Delete everything from <div class="form-box"> to </div>
-                and paste your AN embed code in its place
-             ────────────────────────────────────────── -->
-        <div class="fr">
-          <label>First Name</label>
-          <input type="text" placeholder="Jane" id="f_first">
-        </div>
-        <div class="fr">
-          <label>Last Name</label>
-          <input type="text" placeholder="Smith" id="f_last">
-        </div>
-        <div class="fr">
-          <label>Email Address</label>
-          <input type="email" placeholder="jane@example.com" id="f_email">
-        </div>
-        <div class="fr">
-          <label>ZIP Code</label>
-          <input type="text" placeholder="10001" id="f_zip" maxlength="10">
-        </div>
-        <div class="fr">
-          <span class="check-label">On Election Day I will… <span style="color:var(--red)">*</span></span>
-          <span class="check-hint">Check everything that applies — pick as many as you like</span>
-          <div class="check-pills" id="intentPills">
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Vote (if I haven't already)</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Drive neighbors to the polls (Souls to the Polls)</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Volunteer as an official poll worker</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Create a welcoming, upbeat presence near the polls</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Serve as a nonpartisan election observer</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Run GOTV phone/text banking or door-knocking</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Organize a community voting event or gathering</span>
-            </div>
-            <div class="check-pill" onclick="togglePill(this)">
-              <div class="cp-box">✓</div>
-              <span class="cp-text">Help people check their voter registration</span>
-            </div>
-          </div>
-        </div>
-        <div class="fr-check">
-          <input type="checkbox" id="optin" checked>
-          <label for="optin" style="text-transform:none;font-family:'Lora',serif;font-size:0.83rem;color:var(--muted);letter-spacing:0;font-weight:400;">I'd like to receive updates about the Civic Holiday and ways to get involved. Unsubscribe anytime.</label>
-        </div>
-        <button class="form-submit" id="submitBtn" onclick="handleSubmit(event)">★ &nbsp;Count Me In</button>
-        <p class="an-note">Powered by Action Network &nbsp;·&nbsp; Your information is never sold</p>
+
+        <!-- Action Network embed -->
+        <link href='https://actionnetwork.org/css/style-embed-v3.css' rel='stylesheet' type='text/css'>
+        <script src='https://actionnetwork.org/widgets/v5/form/count-me-in-20?format=js&source=widget'></script>
+        <div id='can-form-area-count-me-in-20' style='width:100%'></div>
+
+        <p class="an-note">Powered by Action Network</p>
       </div>
     </div>
   </div>
@@ -1129,37 +1117,86 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 
 // ── CHECKBOX PILLS ──────────────────────────────────
-function togglePill(el) {
-  el.classList.toggle('cp-checked');
-}
+function togglePill(el) { el.classList.toggle('cp-checked'); }
 
-// ── FORM SUBMIT HANDLER ────────────────────────────
-// When you add your Action Network embed, remove this function entirely.
-function handleSubmit(e) {
-  e.preventDefault();
-  const first = document.getElementById('f_first').value.trim() || 'Friend';
-  const checked = [...document.querySelectorAll('#intentPills .cp-checked')]
-    .map(el => el.querySelector('.cp-text').textContent.trim());
-  if (checked.length === 0) {
-    alert('Please choose at least one thing you\'ll do on Election Day.');
-    return;
-  }
-  const btn = document.getElementById('submitBtn');
-  btn.textContent = '✓  You\'re In — Thank You, ' + first + '!';
-  btn.style.background = '#1a5c2a';
-  btn.disabled = true;
-  // increment counter
-  const curr = parseInt(sigEl.textContent.replace(/,/g,''));
-  sigEl.textContent = (curr + 1).toLocaleString();
-  // trigger a "you just signed" toast
-  setTimeout(() => {
-    tName.textContent = first + ' (You!)';
-    tLoc.textContent  = 'is observing the Civic Holiday';
+// ── ACTION NETWORK FORM INTEGRATION ─────────────────
+// Waits for AN's widget to render, then:
+//  1. Moves our checkbox section to just above AN's submit button
+//  2. Attaches a submit listener that injects checkbox values into AN's comment field
+//  3. Validates at least one checkbox is checked
+(function() {
+  var anContainer = document.getElementById('can-form-area-count-me-in-20');
+  var pillsSection = document.getElementById('intent-pills-section');
+  if (!anContainer) return;
+
+  var observer = new MutationObserver(function() {
+    var form = anContainer.querySelector('form');
+    if (!form) return;
+    var submitWrap = form.querySelector('.can_submit, .button_container, [type="submit"]');
+    if (!submitWrap) return;
+
+    // Move pills section into AN form, above submit button
+    var submitParent = submitWrap.parentNode || form;
+    // Find the actual submit button/container inside the form
+    var insertBefore = form.querySelector('.can_submit') || form.querySelector('[type="submit"]');
+    if (insertBefore && insertBefore.parentNode) {
+      insertBefore.parentNode.insertBefore(pillsSection, insertBefore);
+    } else {
+      form.appendChild(pillsSection);
+    }
+    pillsSection.style.display = 'block';
+
+    observer.disconnect();
+
+    // Wire up submit — inject checkbox values into AN's comment/note field
+    form.addEventListener('submit', function(e) {
+      var checked = Array.from(document.querySelectorAll('#intentPills .cp-checked .cp-text'))
+        .map(function(el) { return el.textContent.trim(); });
+
+      if (checked.length === 0) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        var warn = document.getElementById('pill-warning');
+        if (!warn) {
+          warn = document.createElement('p');
+          warn.id = 'pill-warning';
+          warn.style.cssText = 'color:#b22234;font-family:Oswald,sans-serif;font-size:0.82rem;letter-spacing:0.05em;margin:0.25rem 0 0.75rem;';
+          warn.textContent = 'Please choose at least one thing you\'ll do on Election Day.';
+          pillsSection.appendChild(warn);
+        }
+        return false;
+      }
+
+      // Remove any previous warning
+      var warn = document.getElementById('pill-warning');
+      if (warn) warn.remove();
+
+      // Inject into AN's comment field (or create hidden input)
+      var commentField = form.querySelector('textarea[name*="comment"], input[name*="comment"]');
+      if (!commentField) {
+        commentField = document.createElement('input');
+        commentField.type = 'hidden';
+        commentField.name = 'action[comment]';
+        form.appendChild(commentField);
+      }
+      commentField.value = 'Election Day plans: ' + checked.join(' | ');
+    }, true);
+  });
+
+  observer.observe(anContainer, { childList: true, subtree: true });
+
+  // Also update the counter/toast on AN success (AN fires a custom event)
+  document.addEventListener('can:form:success', function() {
+    var curr = parseInt(sigEl.textContent.replace(/,/g,'')) || 0;
+    sigEl.textContent = (curr + 1).toLocaleString();
+    tName.textContent = 'Someone new';
+    tLoc.textContent  = 'just committed to the Civic Holiday';
     tTime.textContent = 'Just now';
+    var toast = document.getElementById('toast');
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 4500);
-  }, 800);
-}
+    setTimeout(function() { toast.classList.remove('show'); }, 4500);
+  });
+})();
 </script>
 </body>
 </html>
