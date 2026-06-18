@@ -196,11 +196,10 @@
     .playbook .label::before { background: var(--gold); }
     .playbook .sh { color: white; }
     .playbook-steps {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 0.75rem; margin-top: 2.25rem;
+      display: flex; flex-direction: column;
+      gap: 0.6rem; margin-top: 2.25rem;
     }
     .playbook-step {
-      padding: 1.25rem 1.25rem 1.5rem;
       border: 1px solid rgba(255,255,255,0.08);
       position: relative; transition: background 0.2s;
     }
@@ -209,18 +208,45 @@
       border: 2px solid var(--gold);
       background: rgba(201,168,76,0.07);
     }
+    .ps-row {
+      display: flex; align-items: center; gap: 1.25rem;
+      flex-wrap: wrap; cursor: pointer; user-select: none;
+      padding: 1rem 1.25rem;
+    }
+    .ps-num-big { font-size: .8rem; }
     .ps-num {
       font-family: 'Oswald', sans-serif; font-size: 0.72rem;
       font-weight: 700; letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.3); margin-bottom: 0.4rem;
+      color: var(--red); flex: 0 0 auto; white-space: nowrap;
     }
     .playbook-step.featured .ps-num { color: var(--gold); }
     .ps-title {
       font-family: 'Oswald', sans-serif; font-size: 0.92rem;
       font-weight: 600; color: white; text-transform: uppercase;
-      letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 0.5rem;
+      letter-spacing: 0.04em; line-height: 1.2; flex: 1 1 auto;
     }
-    .ps-text { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .ps-chevron {
+      font-size: 0.8rem; color: rgba(255,255,255,0.35);
+      transition: transform 0.2s; flex: 0 0 auto;
+    }
+    .playbook-step.open .ps-chevron { transform: rotate(180deg); color: var(--gold); }
+    .ps-body {
+      max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+    }
+    .playbook-step.open .ps-body { max-height: 600px; }
+    .ps-byline {
+      font-family: 'Oswald', sans-serif; font-size: 0.72rem;
+      font-weight: 700; color: var(--gold); letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0 1.25rem 0.5rem;
+    }
+    .ps-text {
+      font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65;
+      padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+    .ps-text p { margin-bottom: 0.75rem; }
+    .ps-text ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .ps-text li { margin-bottom: 0.3rem; }
+    .ps-text a { color: var(--blue-lt); }
     .playbook-step.featured .ps-text { color: rgba(255,255,255,0.75); }
     .ps-tag {
       display: inline-block; margin-top: 0.75rem;
@@ -540,7 +566,7 @@
         <span class="l-red">Is Our</span>
         <span class="l-blue">Civic Holiday.</span>
       </h1>
-      <p class="hero-body">In America, voters are supposed to pick our leaders. Showing up — voting, driving neighbors, staffing the polls — is how we make sure that stays true. The civic holiday is a day you give to your community. If you've voted, help someone else. Make it a celebration. Make it visible. Make it ours.</p>
+      <p class="hero-body">In America, voters are supposed to pick our leaders — not officials who purge rolls without notice, redraw the rules mid-game, or throw out results they don't like. That's why showing up matters: voting, driving neighbors, staffing the polls, watching the count. The civic holiday is a day you give to defend that. If you've voted, help someone else. Make it visible. Make it loud. Make it impossible to steal.</p>
       <div class="btn-row">
         <a class="btn-primary" href="#signup">Join In</a>
         <a class="btn-ghost"   href="#why">How It Works</a>
@@ -637,40 +663,79 @@
     <div class="playbook-steps rev">
 
       <div class="playbook-step">
-        <div class="ps-num">Step 01 · Now → Election Day</div>
-        <div class="ps-title">Reach the 89 million who sat out</div>
-        <div class="ps-text">In the last election, approximately 89 million eligible voters didn't vote — more than either major candidate received. They're not unreachable. Find three people: a family member, coworker, neighbor. People are locked out structurally, or they've rationally withdrawn, or they ideologically refuse. Speak to the real reason and meet them there.</div>
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 01</div> · Now → Election Day</div>
+          <div class="ps-title">Activate the Vote</div>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Get registered and ready to vote: <A href="vote.org">Vote.org</a></div>
+          <div class="ps-text"><p>Each of the people's election playbooks starts with this: get with at least 3 people to act with you. Because this is more than just getting out the vote. This includes reminding people why their vote is precious, debunking the lies and filth that's coming, and participating in efforts like <a href="https://blackpowerwarroom.com/freedom-summer/" target="_blank" rel="noopener">Freedom Summer</a>.</p>
+<p>At stake: In 2024, approximately 89 million eligible voters in the United States didn't vote. That's more people than votes received by either major-party candidate. If "none of the above" was a candidate, they would have won — which is why we have to reach out to them.</p>
+<p>In <a href="https://freedomtrainers.net/election" target="_blank" rel="noopener">her essay</a> Ash-Lee Henderson describes three core reasons people don't vote:</p>
+<ul><li>Are structurally locked out (we help them vote)</li>
+<li>Rationally withdraw (we build them a political home based on the economic despair)</li>
+<li>Ideologically refuse (we expand the frame).</li></ul></div>
+        </div>
       </div>
 
       <div class="playbook-step">
-        <div class="ps-num">Step 02 · Aug – Nov</div>
-        <div class="ps-title">Check your registration — now and again</div>
-        <div class="ps-text">Voter rolls are being purged. The federal government has asked states to remove voters — and 12 states have already handed over their rolls: Alaska, Arkansas, Indiana, Louisiana, Mississippi, Nebraska, Ohio, Oklahoma, South Dakota, Tennessee, Texas, and Wyoming. Check at <a href="https://vote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">vote.org</a>. Check again 30 days before the election. Help your three people do it too — do it together, right now, on your phone.</div>
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 02</div> · Aug – Nov</div>
+          <div class="ps-title">Check your registration — now and again</div>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Check your registration: <A href="vote.org">Vote.org</a></div>          <div class="ps-text">Voter rolls are being purged. The federal government has asked states to remove voters — and 12 states have already handed over their rolls: Alaska, Arkansas, Indiana, Louisiana, Mississippi, Nebraska, Ohio, Oklahoma, South Dakota, Tennessee, Texas, and Wyoming. Check at <a href="https://vote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">vote.org</a>. Check again 30 days before the election. Help your three people do it too — do it together, right now, on your phone.</div>
+        </div>
       </div>
 
       <div class="playbook-step">
-        <div class="ps-num">Step 03 · Sept – Oct</div>
-        <div class="ps-title">Vote early — make it collective</div>
-        <div class="ps-text">Early voting isn't just convenient — it's a visible act of collective power. Souls to the Polls. Parties at the polls. Go together, be visible, share it. Bring a voter guide (<a href="https://guides.vote" target="_blank" rel="noopener" style="color:var(--blue-lt);">guides.vote</a>). Use <strong>Vote Early Day (Oct 27, 2026)</strong> as a national coordination moment — register your event at <a href="https://voteearlyday.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">voteearlyday.org</a>.</div>
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 03</div> · Sept – Oct</div>
+          <div class="ps-title">Vote early — make it collective</div>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Register your event: <a href="voteearlyday.org">Vote Early Day</a>, <a href="Indivisible.org">Indivisible</a></div>
+          <div class="ps-text">Early voting isn't just convenient — it's a visible act of collective power. Souls to the Polls. Parties at the polls. Go together, be visible, share it. Bring a voter guide (<a href="https://guides.vote" target="_blank" rel="noopener" style="color:var(--blue-lt);">guides.vote</a>). Use <strong>Vote Early Day (Oct 27, 2026)</strong> as a national coordination moment — register your event at <a href="https://voteearlyday.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">voteearlyday.org</a>.</div>
+        </div>
       </div>
 
-      <div class="playbook-step featured">
-        <div class="ps-num">Step 04 · Election Day</div>
-        <div class="ps-title">Treat Election Day like a civic holiday</div>
-        <div class="ps-text">Not a chore. A celebration. A block party with a ballot box. Vote if you haven't. Help others get to the polls. Be a poll worker or monitor (<a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--gold);">866OurVote.org</a>). Organize welcoming gatherings to encourage voting and counter any intimidation. Every eligible voter should have equal say in the decisions that impact our lives.</div>
-        <span class="ps-tag">★ You are here</span>
+      <div class="playbook-step featured open">
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 04</div> · Election Day</div>
+          <div class="ps-title">Treat Election Day like a civic holiday</div>
+          <span class="ps-tag">★ You are here</span>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Sign up at: <a href="http://Election.Holiday">Election.Holiday</a> | Companies: <a href="maketimetovote.org">Time To Vote</a></div>          <div class="ps-text">Not a chore. A celebration. A block party with a ballot box. Vote if you haven't. Help others get to the polls. Be a poll worker or monitor (<a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--gold);">866OurVote.org</a>). Organize welcoming gatherings to encourage voting and counter any intimidation. Every eligible voter should have equal say in the decisions that impact our lives.</div>
+        </div>
       </div>
 
       <div class="playbook-step">
-        <div class="ps-num">Step 05 · Nov 4 Until Every Vote Is Counted</div>
-        <div class="ps-title">Count every vote — be there till it's done</div>
-        <div class="ps-text">Counting takes days. Set up rallies and parties outside counting locations — peaceful, visible, and celebratory. In 2020, Philadelphia organized a massive dance party outside the County Board of Elections that became a symbol of the people protecting their own count. Post-election threat scenarios have one common answer: people in the streets, showing up.</div>
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 05</div> · Nov 4 Until Every Vote Is Counted</div>
+          <div class="ps-title">Count every vote — be there till it's done</div>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Connect with organizing groups: <a href="Indivisible.org">Indivisible</a>, <a href="maydaystrong.org">May Day Strong</a></div>
+          <div class="ps-text">Counting takes days. Set up rallies and parties outside counting locations — peaceful, visible, and celebratory. In 2020, Philadelphia organized a massive dance party outside the County Board of Elections that became a symbol of the people protecting their own count. Post-election threat scenarios have one common answer: people in the streets, showing up.</div>
+        </div>
       </div>
 
       <div class="playbook-step">
-        <div class="ps-num">Step 06 · If Needed</div>
-        <div class="ps-title">Economic non-cooperation</div>
-        <div class="ps-text">If the will of the people is overridden, the answer is collective economic withdrawal — airports, malls, highways. The cost of cheating must be higher than the cost of a free election. Build this capacity now, not after. People who've acted together once are far more likely to act together again.</div>
+        <div class="ps-row" onclick="this.parentElement.classList.toggle('open')">
+          <div class="ps-num"><div class="ps-num-big">Step 06</div> · If Needed</div>
+          <div class="ps-title">Economic non-cooperation</div>
+          <div class="ps-chevron">▾</div>
+        </div>
+        <div class="ps-body">
+          <div class="ps-byline">Connect with organizing groups: <a href="Indivisible.org">Indivisible</a>, <a href="maydaystrong.org">May Day Strong</a></div>
+          <div class="ps-byline">Get registered and ready to vote: <A href="vote.org">Vote.org</a></div>          <div class="ps-text">If the will of the people is overridden, the answer is collective economic withdrawal — airports, malls, highways. The cost of cheating must be higher than the cost of a free election. Build this capacity now, not after. People who've acted together once are far more likely to act together again.</div>
+        </div>
       </div>
 
     </div>
@@ -681,31 +746,32 @@
 <section class="section why" id="why">
   <div class="container">
     <div class="label">How to Spend the Day</div>
-    <h2 class="sh">Ways to Make It<br>a Civic Holiday</h2>
+    <h2 class="sh">Ideas to Make It<br>a Civic Holiday</h2>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.97rem;max-width:680px;margin-bottom:0.5rem;">A civic holiday is simple: how can you play your civic duty? Here are some ideas. If you're stuck, go to <a href="https://www.wearegroundcontrol.org/app" target="_blank" rel="noopener" style="color:var(--blue-lt);">Ground Control</a> to find ways to plug in near you.</p>
     <div class="why-grid">
       <div class="why-card rev">
         <div class="why-title">Vote, if you haven't</div>
-        <div class="why-text">First and foundational. Voting is how we impact our lives — our healthcare, our schools, our wages, our neighborhoods. Every eligible American deserves equal say in those decisions. Find your polling place, bring a friend, and go. Already voted early or by mail? Great — skip to the next card.</div>
+        <div class="why-text">First and foundational. Voting shapes our healthcare, schools, wages, and neighborhoods. Every eligible American deserves equal say. Find your polling place, bring a friend, and go. Already voted? Skip to the next card.</div>
       </div>
       <div class="why-card rev">
         <div class="why-title">Souls to the Polls</div>
-        <div class="why-text">The proud tradition of organizing rides so that neighbors who can't easily get to a polling place don't have to go alone. Offer your car, join a ride network, or coordinate with your church, union, or neighborhood group. Nobody should miss their vote for lack of a ride.</div>
+        <div class="why-text">The proud tradition of organizing rides so neighbors who can't easily get to a polling place don't have to go alone. Offer your car, join a ride network, or coordinate with your church, union, or neighborhood group.</div>
       </div>
       <div class="why-card rev">
         <div class="why-title">Be a Poll Worker</div>
-        <div class="why-text">Elections don't run themselves — they run on the people who show up to staff them. Poll workers are the backbone of every election. Training takes just a few hours, most jurisdictions pay a stipend, and your community genuinely needs you. Sign up at <a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">866OurVote.org</a>.</div>
+        <div class="why-text">Elections run on the people who show up to staff them. Training takes a few hours, most jurisdictions pay a stipend, and your community needs you. Sign up at <a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">866OurVote.org</a>.</div>
       </div>
       <div class="why-card rev">
         <div class="why-title">Bring Good Energy — at the Polls or Anywhere</div>
-        <div class="why-text">Set up near a polling place — or in your neighborhood, outside your workplace, at a park — with music, snacks where permitted, and signs of welcome. A festive, friendly presence makes voting feel like the community celebration it is, and it's a direct, joyful answer to anyone trying to make voters feel unwelcome or afraid.</div>
+        <div class="why-text">Set up near a polling place, your neighborhood, or a park — with music, snacks, and signs of welcome. A festive presence makes voting feel like the celebration it is, and it's a joyful answer to anyone trying to make voters feel unwelcome.</div>
       </div>
       <div class="why-card rev">
         <div class="why-title">Watch and Witness</div>
-        <div class="why-text">Voters should pick our leaders — but that's only true if every vote that's cast gets counted. Nonpartisan observers are a vital check on that process. You don't need a law degree. Find volunteer opportunities at <a href="https://www.wearegroundcontrol.org/app" target="_blank" rel="noopener" style="color:var(--blue-lt);">Ground Control</a> and <a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">866OurVote.org</a>.</div>
+        <div class="why-text">Voters should pick our leaders — but only if every vote cast gets counted. Nonpartisan observers are a vital check on that process, no law degree required. Sign up at <a href="https://866ourvote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">866OurVote.org</a> — and if you're not sure where else to plug in, <a href="https://www.wearegroundcontrol.org/app" target="_blank" rel="noopener" style="color:var(--blue-lt);">Ground Control</a> can match you to whatever's needed near you.</div>
       </div>
       <div class="why-card rev">
         <div class="why-title">Make Calls, Knock Doors, Check Registrations</div>
-        <div class="why-text">Pull out your phone and call or text three friends — "vote tripling" multiplies your impact fast. Knock on doors in your precinct. Help people check their voter registration at <a href="https://vote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">vote.org</a> — rolls are being purged and checking once isn't enough. Pick one and do it.</div>
+        <div class="why-text">Call or text three friends — "vote tripling" multiplies your impact fast. Knock doors in your precinct. Help people check their registration at <a href="https://vote.org" target="_blank" rel="noopener" style="color:var(--blue-lt);">vote.org</a> — rolls are being purged. Pick one and do it.</div>
       </div>
     </div>
   </div>
@@ -752,7 +818,7 @@
       <div class="faq-item">
         <button class="faq-q">Why does this feel so urgent right now? <span class="faq-icon">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">
-          Because right now, eligible voters are being wiped from rolls without notice. States are adding requirements — passports, birth certificates, proof of citizenship — that millions of legal, registered voters simply can't produce quickly. Polling locations in Black and Brown neighborhoods keep getting cut or consolidated. Mail-in voting, which millions depend on, is under sustained pressure. None of this is about fraud — there's no credible evidence of widespread fraud in American elections. This is about making it harder for specific communities to vote, so the people engineering these obstacles can stay in power regardless of what the rest of us want. A political party earns your vote. What's happening now is something else. The civic holiday is one part of our answer: show up in numbers so large that keeping people from voting becomes very, very hard.
+          Because the vote doesn't get taken away all at once — it gets chipped away, one mechanism at a time. Rolls get purged without notice, so someone who's voted for years shows up to find they're suddenly not on the list. New paperwork requirements — a passport, a birth certificate, proof of citizenship on a tight deadline — quietly disqualify people who can't produce documents fast enough. Polling places in some neighborhoods get cut or consolidated, turning a five-minute errand into an hours-long line. And when results come in, the people who lose sometimes simply declare the count fraudulent, with no evidence, hoping that saying it loud enough makes it true. None of these tactics work in isolation — they work because most people are tackling them alone. That's the whole point of the civic holiday: a purged voter has a much better shot if three neighbors are checking rolls together. A long line is survivable if someone's bringing folding chairs and watching the kids. A contested count holds if enough people are standing outside the building making sure it's counted in the open. We protect the vote the same way it's being attacked — one relationship, one show of numbers, at a time.
         </div></div>
       </div>
 
@@ -781,13 +847,6 @@
         <button class="faq-q">I already voted early. What should I do? <span class="faq-icon">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">
           You're exactly who we need on Election Day. Now go help someone else. Offer a neighbor a ride. Show up at a polling place with good energy — music, signs, snacks if you've got them. Volunteer as a poll worker or election observer. Call people you know who might need a nudge. Having already voted means you're free to spend the whole day making sure others can too. That's the civic holiday in action.
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What is "Souls to the Polls"? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">
-          Souls to the Polls is a proud and powerful American tradition — particularly rooted in Black church communities — of organizing communal trips to polling places, often on Sundays before an election. It turns voting into a collective, joyful act rather than a solitary errand. You don't have to wait for Sunday. On Election Day, the same spirit applies: gather your people, carpool together, walk in as a group. Voting in community is voting with purpose.
         </div></div>
       </div>
 
