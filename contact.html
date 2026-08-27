@@ -89,32 +89,50 @@
 
   </div>
 
-  <div>
-<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="73d20d05-706f-4381-aa05-b2c798dd9b80">
-  <input type="hidden" name="subject" value="New message from Election Day contact form">
-  <input type="hidden" name="from_name" value="Election Day Contact Form">
+  <div style="visibility:none;">
+    <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="73d20d05-706f-4381-aa05-b2c798dd9b80">
+    <input type="hidden" name="subject" value="New message from Election Day contact form">
+    <input type="hidden" name="from_name" value="Election Day Contact Form">
 
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="text" name="organization" placeholder="Organization (optional)">
-  <select name="topic">
-    <option>Partnering with the Civic Holiday</option>
-    <option>Press or media inquiry</option>
-    <option>Community organizing / collaboration</option>
-    <option>General question</option>
-    <option>Something else</option>
-  </select>
-  <textarea name="message" placeholder="Message" required></textarea>
+    <div class="form-box">
+      <div class="form-box-title">Send a Message</div>
+      <div class="fr">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="fr">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="fr">
+        <label>Organization (optional)</label>
+        <input type="text" name="organization" placeholder="Organization (optional)">
+      </div>
+      <div class="fr">
+        <label>Topic</label>
+        <select name="topic">
+          <option>Partnering with the Civic Holiday</option>
+          <option>Press or media inquiry</option>
+          <option>Community organizing / collaboration</option>
+          <option>General question</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="fr">
+        <label>Message</label>
+        <textarea name="message" placeholder="Message…" required></textarea>
+      </div>
+      
+      <!-- honeypot field to cut down on spam bots -->
+      <input type="checkbox" name="botcheck" style="display: none;">
 
-  <!-- honeypot field to cut down on spam bots -->
-  <input type="checkbox" name="botcheck" style="display: none;">
-
-  <button type="submit">Send Message</button>
-</form>
+      <button type="submit" class="form-submit" onclick="this.textContent='✓  Sent — Thanks!';this.style.background='#1a5c2a';this.disabled=true;">Send Message</button>
+    </div>  
+    </form>
   </div>
   
-  <div style="visibility:none;">
+  <div style="visibility:none;display:none;">
     <div class="form-box">
       <div class="form-box-title">Send a Message</div>
       <div class="fr">
