@@ -88,6 +88,31 @@
     </div>
 
   </div>
+
+  <div>
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="73d20d05-706f-4381-aa05-b2c798dd9b80">
+  <input type="hidden" name="subject" value="New message from Election Day contact form">
+  <input type="hidden" name="from_name" value="Election Day Contact Form">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="organization" placeholder="Organization (optional)">
+  <select name="topic">
+    <option>Partnering with the Civic Holiday</option>
+    <option>Press or media inquiry</option>
+    <option>Community organizing / collaboration</option>
+    <option>General question</option>
+    <option>Something else</option>
+  </select>
+  <textarea name="message" placeholder="Message" required></textarea>
+
+  <!-- honeypot field to cut down on spam bots -->
+  <input type="checkbox" name="botcheck" style="display: none;">
+
+  <button type="submit">Send Message</button>
+</form>
+  </div>
   
   <div style="visibility:none;">
     <div class="form-box">
