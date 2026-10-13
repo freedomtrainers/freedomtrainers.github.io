@@ -190,6 +190,50 @@
     .manifesto-body { max-width: 760px; font-size: 1.1rem; line-height: 1.9; }
     .manifesto-body p + p { margin-top: 1.4rem; }
 
+    /* ── CIVIC HOLIDAY STORE FEATURE ── */
+    .store-feature {
+      background: var(--white);
+      border-bottom: 1px solid rgba(13,31,60,0.1);
+    }
+    .store-inner {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.85fr) minmax(300px, 1.15fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .store-art {
+      background: var(--cream);
+      border: 1px solid rgba(13,31,60,0.12);
+      padding: clamp(1rem, 3vw, 2rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .store-art a { display: block; width: 100%; max-width: 390px; }
+    .store-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      mix-blend-mode: multiply;
+      transition: transform 0.25s ease;
+    }
+    .store-art a:hover img { transform: scale(1.025); }
+    .store-copy p {
+      max-width: 620px;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+    .store-button { margin-top: 0.35rem; }
+    .store-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.78rem !important;
+      font-style: italic;
+    }
+    .store-art { max-width: 520px; margin: 0 auto; }
+    .store-copy { max-width: 680px; }
+    
     /* ── PLAYBOOK ── */
     .playbook { background: var(--navy); padding: 4rem 2rem; }
     .playbook .label { color: var(--gold); }
@@ -539,6 +583,7 @@
     <li><a href="#signup">Join In</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#partners">Partners</a></li>
+    <li><a href="https://store.election.holiday/" target="_blank" rel="noopener">Shop</a></li>
   </ul>
   <a class="nav-cta" href="#signup">Join In →</a>
 </nav>
@@ -656,6 +701,27 @@
   </div>
 </section>
 
+<!-- ═══════════════ CIVIC HOLIDAY STORE ═══════════════ -->
+<section class="section store-feature" id="store">
+  <div class="container store-inner">
+    <div class="store-art rev">
+      <a href="https://store.election.holiday/" target="_blank" rel="noopener" aria-label="Visit the Our Civic Holiday store">
+        <img
+          src="https://cdn11.bigcommerce.com/s-8i1pn7ar2r/images/stencil/500x659/products/153/401/iVoted_stkPck__47476.1790978540.png?c=1"
+          alt="A pack of six red, white, and blue I Voted stickers supporting the Civic Holiday"
+          loading="lazy">
+      </a>
+    </div>
+    <div class="store-copy rev">
+      <div class="label">Wear It. Share It. Support It.</div>
+      <h2 class="sh">Make Your Vote<br>Visible.</h2>
+      <p>Bring the Civic Holiday into the world with stickers and other gear that make your commitment visible. From “I Voted” to messages about peace, the planet, and our communities, these items help spread the word—and purchases support Our Civic Holiday.</p>
+      <a class="btn-primary store-button" href="https://store.election.holiday/" target="_blank" rel="noopener">Shop Civic Holiday Gear →</a>
+      <p class="store-note">Union printed in the USA.</p>
+    </div>
+  </div>
+</section>
+  
 <!-- ═══════════════ PLAYBOOK ═══════════════ -->
 <section class="playbook">
   <div class="container">
